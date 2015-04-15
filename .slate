@@ -1,0 +1,25 @@
+alias mon-laptop 0
+alias mon-ekstern 1
+
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+# Push Bindings
+bind right:alt,cmd  chain push right bar-resize:screenSizeX/2 | resize +0 screenSizeX/2 top-right | push down
+bind left:alt,cmd   chain push left  bar-resize:screenSizeX/2 | resize +0 screenSizeX/2 top-left | push down
+bind up:alt,cmd     corner top-left resize:screenSizeX;screenSizeY
+
+# Corner
+bind pad7:alt,cmd corner top-left resize:screenSizeX/2;screenSizeY/2
+bind pad9:alt,cmd corner top-right resize:screenSizeX/2;screenSizeY/2
+bind pad1:alt,cmd corner bottom-left resize:screenSizeX/2;screenSizeY/2
+bind pad3:alt,cmd corner bottom-right resize:screenSizeX/2;screenSizeY/2
+
+
+# Move to external
+alias 1-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY         ${mon-laptop}
+alias 2-full        move screenOriginX;screenOriginY screenSizeX;screenSizeY       ${mon-ekstern}
+
+bind 1:alt,cmd ${1-full}
+bind 2:alt,cmd ${2-full}
