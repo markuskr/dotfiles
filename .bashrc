@@ -37,6 +37,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+if [ -f ~/.bashrc.local ]; then
+    . ~/.bashrc.local
+fi
+
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
@@ -175,13 +179,3 @@ PATH=/Users/mkr/ok_dir/scripts/katalog:$PATH
 if [ -d $HOME/.rvm/bin ]; then
     PATH=$PATH:/$HOME/.rvm/bin
 fi
-export PATH
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home/bin
-
-export OK_DIR=/Users/mkr/ok_dir
-. $OK_DIR/scripts/bash/itas.bash
-eval "$(/$OK_DIR/scripts/i/bin/i init -)"
-
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
