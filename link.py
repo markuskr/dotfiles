@@ -7,7 +7,7 @@ import sys
 IGNORE_LIST = [
     os.path.basename(__file__),
     '.gitignore',
-    'README.mkdn',
+    'README.md',
     '.git',]
 
 if __name__ == '__main__':

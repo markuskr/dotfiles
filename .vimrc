@@ -14,6 +14,7 @@ set spelllang=nb
 let bclose_multiple = 0
 set shiftwidth=2
 set number
+set ic
 "set mouse=a
 "#################### IRULE ###########################
 so $HOME/.vim/irule/pyfunc.vim
