@@ -14,4 +14,4 @@ How does it work?
 repository in `$HOME`. **Existing symbolic links will be
 overwritten**, but existing files of any other type will not.
 
-Orignal from https://github.com/oyvindio/dotfiles 
+Original from https://github.com/oyvindio/dotfiles 
