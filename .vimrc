@@ -15,6 +15,9 @@ let bclose_multiple = 0
 set shiftwidth=2
 set number
 set ic
+set clipboard=unnamed
+set wildignore+=_build/*,deps/*
+runtime macros/matchit.vim
 "set mouse=a
 "#################### IRULE ###########################
 so $HOME/.vim/irule/pyfunc.vim
@@ -23,6 +26,8 @@ let g:irul_location='~/.vim/irule/irul_dict' "Location of the syntax dict.
 au BufRead,BufNewFile *.irul set filetype=irul "If you name a file *.irul,set ftype.
 au! Syntax irul source $irulsyn
 
+let maplocalleader = "."
+
 " Use comma as the leader character
 let mapleader = ","
 
@@ -30,3 +35,5 @@ let mapleader = ","
 nmap <S-Tab> <<
 " " " for insert mode
 imap <S-Tab> <Esc><<i
+
+nnoremap t <C-]>

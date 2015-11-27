@@ -31,6 +31,15 @@ alias docker_cleanup='docker_cleanup_container && docker_cleanup_images'
 # puppet
 alias pup-mgmt='vagrant destroy Centos6_64 && export VAGRANT_HOSTNAME=mgmt1prod-agent.oslo.kommune.no && vagrant up Centos6_64'
 
+puppet-vagrant-restart(){
+  vagrant destroy Centos6_64 && export VAGRANT_HOSTNAME=$1.oslo.kommune.no && vagrant up Centos6_64
+}
+
+
+puppet-vagrant-provision(){
+  export VAGRANT_HOSTNAME=$1.oslo.kommune.no && vagrant provision Centos6_64
+}
+
 git-compare(){
   string=$(__git_ps1)
   string=${string%)}
@@ -45,6 +54,4 @@ alias mci='mvn clean install'
 alias mcis='mvn clean install -DskipTests'
  
 alias rbcc='rake build-changed-components[local]'
-
-#f5
-alias f5-pwd='grep F5 $OK_DIR/dokumentasjon/passord_dekryptert.txt | sed '\''s/F5 BIG-IP: itas //'\'' | pbcopy && exit'
+alias json='python -m json.tool'

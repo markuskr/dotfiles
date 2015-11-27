@@ -179,3 +179,4 @@ PATH=/Users/mkr/ok_dir/scripts/katalog:$PATH
 if [ -d $HOME/.rvm/bin ]; then
     PATH=$PATH:/$HOME/.rvm/bin
 fi
+
