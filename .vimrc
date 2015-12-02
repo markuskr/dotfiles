@@ -17,6 +17,9 @@ set number
 set ic
 set clipboard=unnamed
 set wildignore+=_build/*,deps/*
+set nocompatible
+set backspace=2
+
 runtime macros/matchit.vim
 "set mouse=a
 "#################### IRULE ###########################

@@ -21,6 +21,10 @@ if [ "$(uname -s)" = "Darwin" ]; then
     export CLICOLORS=yes
     export LSCOLORS='ExGxFxdaCxDADAhbadecad'
     export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
+  
+    if [ -f ~/.bash.d/osx ]; then
+      . ~/.bash.d/osx
+    fi
 fi
 
 # Change the window title of X terminals
@@ -49,10 +53,6 @@ if [ -f /usr/local/etc/bash_completion ]; then
     . /usr/local/etc/bash_completion
 fi
 
-if [ -f ~/.bash.d/osx ]; then
-    . ~/.bash.d/osx
-fi
-
 if [ -f ~/.bash.d/mvn_bash_completion.bash ]; then
     . ~/.bash.d/mvn_bash_completion.bash
 fi
@@ -61,46 +61,6 @@ if [ -f ~/.bash.d/docker_bash_completion.bash ]; then
     . ~/.bash.d/docker_bash_completion.bash
 fi
 
-# enable completion for pip
-if [[ -x $(which pip) ]]
-then
-    eval "`pip completion --bash`"
-fi
-
-# colored prompt
-export PS1='\[\e[1;32m\]\u@\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[1;30m\]$(__git_ps1)\[\e[0m\]\$ '
-
-export PAGER=less
-export MANPAGER=less
-
-if [[ ${BASH_VERSINFO[0]} -eq 4 ]] && [[ ${BASH_VERSINFO[1]} -ge 3 ]] || [[ ${BASH_VERSINFO[0]} -gt 4 ]]; then
-    export HISTSIZE=-1 #
-    export HISTFILESIZE=-1
-else
-    export HISTSIZE=500000
-    export HISTFILESIZE=500000
-fi
-export HISTCONTROL=ignoredups
-export HISTTIMEFORMAT='%Y-%m-%d %H:%M:%S '
-export GREP_OPTIONS="--color=auto"
-export PROMPT_COMMAND="history -a && history -c && history -r && $PROMPT_COMMAND" # append to and reread histfile on prompt
-
-# colorize manpages in less
-export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
-export LESS_TERMCAP_md=$'\E[0;34m' # begin bold
-export LESS_TERMCAP_me=$'\E[0m' # end bold
-export LESS_TERMCAP_so=$'\E[01;40;33m' # begin standout mode
-export LESS_TERMCAP_se=$'\E[0m' # end standout mode
-export LESS_TERMCAP_us=$'\E[0;36m' #begin underline
-export LESS_TERMCAP_ue=$'\E[0m' # end underline
-
-# Useful functions
-function mkcd() { mkdir "$1" && cd "$1"; }
-function calc() { echo "$*" | bc; }
-function hex2dec { awk 'BEGIN { printf "%d\n",0x$1}'; }
-function dec2hex { awk 'BEGIN { printf "%x\n",$1}'; }
-function mktar() { tar czf "${1%%/}.tar.gz" "${1%%/}/"; }
-function rot13 () { echo "$@" | tr a-zA-Z n-za-mN-ZA-M; }
 # enable completion for pip
 if [[ -x $(which pip) ]]
 then

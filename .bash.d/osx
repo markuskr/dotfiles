@@ -18,6 +18,8 @@ then
     fi
 fi
 
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 if [[ -r "$(brew --prefix)/Library/Taps/bfontaine/homebrew-command-not-found/handler.sh" ]]; then
   . "$(brew --prefix)/Library/Taps/bfontaine/homebrew-command-not-found/handler.sh"
 fi

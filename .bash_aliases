@@ -52,6 +52,7 @@ git-compare(){
 # maven
 alias mci='mvn clean install'
 alias mcis='mvn clean install -DskipTests'
- 
+
+alias vi='vim'
 alias rbcc='rake build-changed-components[local]'
 alias json='python -m json.tool'
