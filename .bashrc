@@ -15,13 +15,16 @@ export LC_MEASUREMENT="en_US.UTF-8"
 export LC_IDENTIFICATION="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 
+# Fast change to owncloud dir
+export OWNCLOUD_DIR="$HOME/cloudbox/"
+
 # mac-specific
 if [ "$(uname -s)" = "Darwin" ]; then
     # cli colors
     export CLICOLORS=yes
     export LSCOLORS='ExGxFxdaCxDADAhbadecad'
     export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF-8"
-  
+
     if [ -f ~/.bash.d/osx ]; then
       . ~/.bash.d/osx
     fi
@@ -36,6 +39,16 @@ case $TERM in
         PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}    \033\\"'
         ;;
 esac
+
+# path
+PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
+PATH=/Users/mkr/ok_dir/scripts/katalog:$PATH
+PATH=/opt/homebrew-cask/Caskroom/firefox/42.0/Firefox.app/Contents/MacOS:$PATH
+if [ -d $HOME/.rvm/bin ]; then
+  PATH=$PATH:/$HOME/.rvm/bin
+fi
+
+
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -132,11 +145,3 @@ function x() {
         fi
     done
 }
-
-# path
-PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/local/share/python:$PATH
-PATH=/Users/mkr/ok_dir/scripts/katalog:$PATH
-if [ -d $HOME/.rvm/bin ]; then
-    PATH=$PATH:/$HOME/.rvm/bin
-fi
-
