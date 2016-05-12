@@ -27,6 +27,10 @@ alias ci='git commit'
 alias co='git checkout'
 alias gd='git diff'
 
+function git-push(){
+    git push -u origin $(git rev-parse --abbrev-ref HEAD)
+}
+
 #docker
 alias docker_cleanup_container='docker ps -a -q | xargs docker rm'
 alias docker_cleanup_images="docker images -a | grep '<none>' | awk '{print \$3}' | xargs docker rmi"
@@ -38,7 +42,6 @@ alias pup-mgmt='vagrant destroy Centos6_64 && export VAGRANT_HOSTNAME=mgmt1prod-
 puppet-vagrant-restart(){
   vagrant destroy Centos6_64 && export VAGRANT_HOSTNAME=$1.oslo.kommune.no && vagrant up Centos6_64
 }
-
 
 puppet-vagrant-provision(){
   export VAGRANT_HOSTNAME=$1.oslo.kommune.no && vagrant provision Centos6_64
